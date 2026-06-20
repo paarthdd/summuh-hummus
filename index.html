@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Summuh Hummus — Hummus, Rewound.</title>
+<meta name="description" content="Summuh Hummus: real protein, all natural, unreasonably creamy. 10g of protein per serving from whole foods. Hummus, rewound." />
+<meta name="theme-color" content="#F4A300" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Summuh Hummus — Hummus, Rewound." />
+<meta property="og:description" content="Real protein. All natural. Unreasonably creamy. 10g of protein from whole foods." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<!-- Sun favicon -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='22' fill='%23F4A300'/%3E%3C/svg%3E" />
+
+<style>
+:root{
+  --cream:#FBF1DC;
+  --cream-2:#F6E8CC;
+  --sand:#EFD9AE;
+  --gold:#F4A300;
+  --gold-deep:#E07A1F;
+  --terra:#C0492B;
+  --olive:#5C6B3C;
+  --ink:#241C10;
+  --ink-soft:#473a26;
+  --paper:#FFF9EE;
+  --maxw:1180px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Space Grotesk',system-ui,sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  line-height:1.55;
+}
+
+/* subtle paper grain over everything */
+body::before{
+  content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+h1,h2,h3,.display{font-family:'Fraunces',serif;font-weight:600;line-height:1.02;letter-spacing:-.02em}
+
+a{color:inherit}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-deep)}
+
+/* ---------- NAV ---------- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 28px;
+  background:rgba(251,241,220,0);
+  transition:background .4s var(--ease),box-shadow .4s var(--ease),padding .4s var(--ease);
+}
+nav.solid{background:rgba(251,241,220,.9);backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(36,28,16,.08);padding:10px 28px}
+.nav-brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:700;font-size:1.05rem;letter-spacing:.02em;text-decoration:none}
+.nav-brand svg{width:30px;height:30px;display:block}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{font-size:.82rem;font-weight:500;text-decoration:none;letter-spacing:.04em;opacity:.78;transition:opacity .2s}
+.nav-links a:hover{opacity:1}
+.nav-cta{background:var(--ink);color:var(--cream)!important;padding:9px 18px;border-radius:100px;opacity:1!important;font-weight:600!important}
+.nav-cta:hover{background:var(--terra)}
+@media(max-width:780px){.nav-links a:not(.nav-cta){display:none}}
+
+/* ---------- BUTTONS ---------- */
+.btn{display:inline-flex;align-items:center;gap:9px;font-family:'Space Grotesk';font-weight:600;font-size:.92rem;
+  padding:14px 26px;border-radius:100px;text-decoration:none;cursor:pointer;border:none;transition:transform .25s var(--ease),background .25s,box-shadow .25s}
+.btn-primary{background:var(--ink);color:var(--cream)}
+.btn-primary:hover{background:var(--terra);transform:translateY(-2px);box-shadow:0 12px 30px -10px rgba(192,73,43,.6)}
+.btn-ghost{background:transparent;color:var(--ink);border:1.5px solid rgba(36,28,16,.25)}
+.btn-ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 60px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0;background:
+  radial-gradient(120% 90% at 50% 8%, #FFE9B8 0%, var(--cream) 46%, var(--cream-2) 100%);}
+/* rotating ray halo behind logo */
+.halo{position:absolute;top:8%;left:50%;width:min(120vw,1100px);aspect-ratio:1;transform:translate(-50%,0);z-index:0;opacity:.5;animation:spin 80s linear infinite}
+@keyframes spin{to{transform:translate(-50%,0) rotate(360deg)}}
+.hero-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}
+
+.logo-mark{width:min(64vw,300px);height:auto;filter:drop-shadow(0 16px 30px rgba(224,122,31,.22))}
+.palindrome{margin-top:18px;font-size:.7rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold-deep);font-weight:600}
+.palindrome b{color:var(--ink)}
+
+.hero h1{font-size:clamp(3.2rem,11vw,8rem);margin-top:6px;color:var(--ink);font-weight:600}
+.hero h1 em{font-style:italic;color:var(--gold-deep)}
+.hero .tag{margin-top:14px;font-size:clamp(1rem,2.4vw,1.35rem);color:var(--ink-soft);max-width:36ch;font-weight:400}
+
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:30px}
+.chip{display:flex;align-items:center;gap:8px;background:var(--paper);border:1px solid rgba(36,28,16,.1);
+  padding:9px 16px;border-radius:100px;font-size:.85rem;font-weight:600;box-shadow:0 4px 16px -10px rgba(36,28,16,.3)}
+.chip .dot{width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.chip:nth-child(2) .dot{background:var(--olive)}
+.chip:nth-child(3) .dot{background:var(--terra)}
+
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:34px}
+.scroll-hint{margin-top:48px;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);opacity:.7;animation:bob 2.2s var(--ease) infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+
+/* marquee ribbon */
+.ribbon{background:var(--ink);color:var(--cream);overflow:hidden;white-space:nowrap;padding:14px 0;position:relative;z-index:3}
+.ribbon-track{display:inline-block;animation:marq 26s linear infinite;font-family:'Fraunces',serif;font-style:italic;font-size:1.15rem;letter-spacing:.02em}
+.ribbon-track span{margin:0 26px;opacity:.92}
+.ribbon-track span b{color:var(--gold);font-style:normal}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ---------- SECTIONS ---------- */
+section{position:relative}
+.pad{padding:clamp(80px,12vw,150px) 0}
+.section-head{max-width:42ch}
+.section-head h2{font-size:clamp(2.1rem,6vw,4rem);margin-top:14px;color:var(--ink)}
+.section-head p{margin-top:14px;color:var(--ink-soft);font-size:1.05rem}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* ---------- STORY ---------- */
+.story{background:var(--paper)}
+.story-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(40px,6vw,90px);align-items:start;margin-top:50px}
+@media(max-width:860px){.story-grid{grid-template-columns:1fr;gap:34px}}
+.story-body p{font-size:1.08rem;color:var(--ink-soft);margin-bottom:20px;max-width:62ch}
+.story-body p:first-child::first-letter{font-family:'Fraunces',serif;font-size:3.6rem;float:left;line-height:.8;padding:6px 12px 0 0;color:var(--gold-deep);font-weight:700}
+.pullquote{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(1.5rem,3.4vw,2.3rem);line-height:1.2;color:var(--ink);
+  border-left:3px solid var(--gold);padding-left:24px;margin:8px 0}
+.pullquote cite{display:block;font-style:normal;font-family:'Space Grotesk';font-size:.9rem;letter-spacing:.04em;color:var(--gold-deep);margin-top:16px;font-weight:600}
+.story-aside{position:sticky;top:100px}
+.story-aside .big{font-family:'Fraunces';font-size:clamp(3rem,8vw,5.5rem);color:var(--gold-deep);line-height:.9}
+.story-aside .big span{display:block;font-size:1rem;font-family:'Space Grotesk';letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-top:10px;font-weight:600}
+.aside-rule{height:1px;background:rgba(36,28,16,.14);margin:30px 0}
+
+/* ---------- STATS ---------- */
+.stats{background:linear-gradient(180deg,var(--cream) 0%, var(--cream-2) 100%)}
+.macro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:50px}
+@media(max-width:760px){.macro-grid{grid-template-columns:1fr}}
+.macro{background:var(--paper);border:1px solid rgba(36,28,16,.09);border-radius:22px;padding:28px;box-shadow:0 18px 40px -28px rgba(36,28,16,.4)}
+.macro h4{font-family:'Space Grotesk';font-weight:700;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft)}
+.macro .num{font-family:'Fraunces';font-size:3.2rem;color:var(--ink);line-height:1;margin:14px 0 4px}
+.macro .vs{font-size:.85rem;color:var(--ink-soft)}
+.bar{height:9px;border-radius:100px;background:rgba(36,28,16,.1);margin-top:18px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:100px;width:0;transition:width 1.4s var(--ease)}
+.bar.win i{background:linear-gradient(90deg,var(--gold),var(--gold-deep))}
+.bar.lose i{background:rgba(36,28,16,.32)}
+.bar-row{display:flex;justify-content:space-between;font-size:.78rem;font-weight:600;margin-top:10px;color:var(--ink-soft)}
+.bar-row.them{margin-top:14px}
+
+.scoreline{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:34px;text-align:center}
+@media(max-width:760px){.scoreline{grid-template-columns:1fr}}
+.score{background:var(--ink);color:var(--cream);border-radius:22px;padding:30px 18px}
+.score .big{font-family:'Fraunces';font-size:clamp(2.6rem,6vw,3.6rem);color:var(--gold);line-height:1}
+.score p{font-size:.86rem;letter-spacing:.04em;margin-top:8px;opacity:.85}
+.fine{font-size:.74rem;color:var(--ink-soft);margin-top:24px;opacity:.8;max-width:70ch}
+
+/* ---------- PILLARS ---------- */
+.pillars{background:var(--olive);color:var(--cream)}
+.pillars .eyebrow{color:#E9D9A6}
+.pillars .section-head h2{color:var(--cream)}
+.pillars .section-head p{color:rgba(251,241,220,.78)}
+.pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:50px}
+@media(max-width:860px){.pillar-grid{grid-template-columns:1fr}}
+.pillar{border-top:2px solid rgba(251,241,220,.25);padding-top:24px}
+.pillar .ic{width:46px;height:46px;margin-bottom:18px}
+.pillar h3{font-size:1.5rem;color:var(--cream)}
+.pillar p{margin-top:12px;color:rgba(251,241,220,.82);font-size:1rem}
+
+/* ---------- FOUNDERS ---------- */
+.founders{background:var(--paper)}
+.founder-photo{margin-top:46px;border-radius:24px;overflow:hidden;background:linear-gradient(135deg,var(--sand),var(--cream-2));
+  aspect-ratio:16/7;display:flex;align-items:center;justify-content:center;position:relative;border:1px solid rgba(36,28,16,.1)}
+.founder-photo .ph{text-align:center;color:var(--ink-soft);padding:24px}
+.founder-photo .ph .sun{width:64px;height:64px;margin:0 auto 14px;opacity:.65}
+.founder-photo .cap{position:absolute;bottom:14px;left:18px;font-size:.78rem;background:rgba(36,28,16,.7);color:var(--cream);padding:6px 12px;border-radius:100px}
+.bios{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:40px}
+@media(max-width:760px){.bios{grid-template-columns:1fr}}
+.bio{background:var(--cream);border:1px solid rgba(36,28,16,.1);border-radius:22px;padding:30px}
+.bio .role{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);font-weight:600}
+.bio h3{font-size:1.8rem;margin:6px 0 14px}
+.bio p{color:var(--ink-soft);font-size:1rem}
+.bio .meta{margin-top:18px;font-size:.82rem;color:var(--ink);font-weight:600;border-top:1px solid rgba(36,28,16,.12);padding-top:16px}
+
+/* ---------- REVIEWS ---------- */
+.reviews{background:var(--terra);color:var(--cream)}
+.reviews .eyebrow{color:#FFD9A0}
+.reviews .section-head h2{color:var(--cream)}
+.reviews .section-head p{color:rgba(255,249,238,.82)}
+.review-grid{columns:3;column-gap:24px;margin-top:46px}
+@media(max-width:900px){.review-grid{columns:2}}
+@media(max-width:600px){.review-grid{columns:1}}
+.review{break-inside:avoid;background:rgba(255,249,238,.07);border:1px solid rgba(255,249,238,.16);border-radius:20px;padding:24px;margin-bottom:24px;backdrop-filter:blur(4px)}
+.review .stars{color:#FFD25A;letter-spacing:2px;font-size:.9rem}
+.review p{margin:14px 0;font-size:1rem;line-height:1.5}
+.review cite{font-style:normal;font-weight:600;font-size:.86rem;color:#FFE6BE}
+
+/* ---------- CONTACT ---------- */
+.contact{background:radial-gradient(120% 100% at 50% 0%, #FFE9B8, var(--cream) 60%)}
+.contact-card{max-width:680px;margin:50px auto 0;text-align:center;background:var(--paper);border:1px solid rgba(36,28,16,.1);
+  border-radius:28px;padding:clamp(34px,5vw,56px);box-shadow:0 30px 60px -34px rgba(224,122,31,.5)}
+.contact-card .sun{width:60px;height:60px;margin:0 auto 22px}
+.contact-card h2{font-size:clamp(2rem,5vw,3rem)}
+.contact-card p{color:var(--ink-soft);margin-top:14px;font-size:1.05rem}
+.cities{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:22px 0 28px}
+.cities span{font-size:.78rem;font-weight:600;background:var(--cream-2);border:1px solid rgba(36,28,16,.1);padding:6px 14px;border-radius:100px}
+.form{display:flex;gap:10px;max-width:440px;margin:0 auto}
+@media(max-width:520px){.form{flex-direction:column}}
+.form input{flex:1;padding:15px 18px;border-radius:100px;border:1.5px solid rgba(36,28,16,.22);background:var(--cream);font-family:inherit;font-size:.95rem;color:var(--ink)}
+.form input:focus{outline:none;border-color:var(--gold-deep)}
+.form button{white-space:nowrap}
+.form-note{font-size:.78rem;color:var(--ink-soft);margin-top:16px}
+.thanks{display:none;font-family:'Fraunces';font-style:italic;font-size:1.4rem;color:var(--gold-deep);margin-top:6px}
+.thanks.show{display:block;animation:pop .5s var(--ease)}
+@keyframes pop{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:none}}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--ink);color:var(--cream);padding:70px 0 40px}
+.foot-grid{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.foot-brand{display:flex;flex-direction:column;gap:14px;max-width:300px}
+.foot-brand svg{width:54px;height:54px}
+.foot-brand .name{font-family:'Fraunces';font-size:1.4rem;font-weight:700;letter-spacing:.04em}
+.foot-brand small{opacity:.6;font-size:.84rem}
+.foot-col h5{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;opacity:.55;margin-bottom:16px}
+.foot-col a{display:block;text-decoration:none;opacity:.85;margin-bottom:10px;font-size:.92rem;transition:opacity .2s,color .2s}
+.foot-col a:hover{opacity:1;color:var(--gold)}
+.foot-bottom{margin-top:50px;padding-top:24px;border-top:1px solid rgba(251,241,220,.15);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.8rem;opacity:.6}
+.foot-bottom em{font-family:'Fraunces';font-style:italic}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav id="nav">
+  <a href="#top" class="nav-brand">
+    <!-- mini sun -->
+    <svg viewBox="0 0 100 100" aria-hidden="true">
+      <g fill="#F4A300"><circle cx="50" cy="50" r="20"/>
+      <g stroke="#F4A300" stroke-width="6" stroke-linecap="round">
+        <line x1="50" y1="14" x2="50" y2="2"/><line x1="50" y1="98" x2="50" y2="86"/>
+        <line x1="14" y1="50" x2="2" y2="50"/><line x1="98" y1="50" x2="86" y2="50"/>
+        <line x1="24" y1="24" x2="15" y2="15"/><line x1="85" y1="85" x2="76" y2="76"/>
+        <line x1="76" y1="24" x2="85" y2="15"/><line x1="15" y1="85" x2="24" y2="76"/>
+      </g></g>
+    </svg>
+    Summuh
+  </a>
+  <div class="nav-links">
+    <a href="#story">Story</a>
+    <a href="#stats">Stats</a>
+    <a href="#founders">Founders</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact" class="nav-cta">Be First to Taste</a>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="hero-bg"></div>
+  <!-- rotating ray halo -->
+  <svg class="halo" viewBox="0 0 400 400" aria-hidden="true">
+    <g stroke="#F4A300" stroke-width="2" opacity=".5">
+      <!-- generated rays -->
+      <g id="halo-rays"></g>
+    </g>
+  </svg>
+
+  <div class="hero-inner">
+    <!-- ===== LOGO: sun with arched text ===== -->
+    <svg class="logo-mark" viewBox="0 0 240 240" role="img" aria-label="Summuh Hummus logo: a smiling sun with SUMMUH arched above and HUMMUS arched below">
+      <defs>
+        <path id="arcTop" d="M 48 120 A 72 72 0 0 1 192 120" />
+        <path id="arcBot" d="M 192 120 A 72 72 0 0 1 48 120" />
+        <radialGradient id="sunFill" cx="40%" cy="35%" r="75%">
+          <stop offset="0%" stop-color="#FFD25A"/>
+          <stop offset="60%" stop-color="#F4A300"/>
+          <stop offset="100%" stop-color="#E07A1F"/>
+        </radialGradient>
+      </defs>
+
+      <!-- rays -->
+      <g id="logo-rays" stroke="#E07A1F" stroke-width="7" stroke-linecap="round"></g>
+
+      <!-- sun face -->
+      <circle cx="120" cy="120" r="46" fill="url(#sunFill)"/>
+      <!-- eyes -->
+      <circle cx="106" cy="113" r="4.6" fill="#241C10"/>
+      <circle cx="134" cy="113" r="4.6" fill="#241C10"/>
+      <!-- smile -->
+      <path d="M 103 128 Q 120 144 137 128" stroke="#241C10" stroke-width="5" fill="none" stroke-linecap="round"/>
+
+      <!-- arched text -->
+      <text font-family="Fraunces, serif" font-weight="700" font-size="25" letter-spacing="5" fill="#241C10">
+        <textPath href="#arcTop" startOffset="50%" text-anchor="middle">SUMMUH</textPath>
+      </text>
+      <text font-family="Fraunces, serif" font-weight="700" font-size="25" letter-spacing="5" fill="#241C10">
+        <textPath href="#arcBot" startOffset="50%" text-anchor="middle">HUMMUS</textPath>
+      </text>
+    </svg>
+
+    <p class="palindrome">S&middot;U&middot;M&middot;M&middot;U&middot;H&nbsp;&nbsp;<b>↔ a perfect palindrome ↔</b>&nbsp;&nbsp;H&middot;U&middot;M&middot;M&middot;U&middot;S</p>
+
+    <h1>Hummus, <em>Rewound.</em></h1>
+    <p class="tag">Real protein. All natural. Unreasonably creamy. The spread you already love — fixed.</p>
+
+    <div class="chips">
+      <span class="chip"><span class="dot"></span>10g Protein</span>
+      <span class="chip"><span class="dot"></span>100% Whole Foods</span>
+      <span class="chip"><span class="dot"></span>No Whey Isolates</span>
+    </div>
+
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">Be First to Taste →</a>
+      <a href="#story" class="btn btn-ghost">Read our story</a>
+    </div>
+
+    <p class="scroll-hint">Scroll ↓</p>
+  </div>
+</header>
+
+<!-- ribbon -->
+<div class="ribbon" aria-hidden="true">
+  <div class="ribbon-track">
+    <span>Hummus, <b>rewound</b>.</span><span>10g protein.</span><span>Zero whey isolates.</span><span>Whole foods only.</span><span>Blind-test champion.</span><span>From Frisco, TX.</span>
+    <span>Hummus, <b>rewound</b>.</span><span>10g protein.</span><span>Zero whey isolates.</span><span>Whole foods only.</span><span>Blind-test champion.</span><span>From Frisco, TX.</span>
+  </div>
+</div>
+
+<!-- ============ STORY ============ -->
+<section class="story pad" id="story">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">The Origin</p>
+      <h2>From Frisco, with fork in hand.</h2>
+      <p>Two friends. One pantry. A dozen-plus test batches.</p>
+    </div>
+
+    <div class="story-grid">
+      <aside class="story-aside reveal">
+        <div class="big" data-count="14" data-suffix="+">0<span>recipe iterations</span></div>
+        <div class="aside-rule"></div>
+        <div class="big" data-count="250" data-suffix="+">0<span>blind taste tests</span></div>
+        <div class="aside-rule"></div>
+        <div class="big" data-count="0" data-suffix="">0<span>who picked retail over us</span></div>
+      </aside>
+
+      <div class="story-body reveal d1">
+        <p>Paarth and Advik grew up in Frisco, Texas, eating hummus the way some kids eat peanut butter: daily, obsessively, and with whatever happened to be in the fridge. Between them they have a wide circle of vegetarian friends and family, and the same complaint surfaced at nearly every dinner table — it's hard to get enough protein, and even harder to find something that actually fills you up.</p>
+        <p>So they did what any pair of stubborn twenty-somethings would do. They got into the kitchen with dull knives, a wobbly food processor, and far too many opinions about what hummus could be.</p>
+        <p>After more than fourteen recipe iterations and over two hundred and fifty blind taste tests across UT Austin, they arrived at a hummus that genuinely tastes better than what's already on the shelf — creamier, more flavorful, and packed with real protein from whole foods. No whey isolates, no shortcuts, no compromise on taste. Not a single tester chose the retail jar.</p>
+
+        <blockquote class="pullquote">
+          "We didn't want to invent a new food. We wanted to fix one we already loved."
+          <cite>— Paarth &amp; Advik</cite>
+        </blockquote>
+
+        <p>That's SUMMUH. Hummus, rewound — back to what it should've been all along.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats pad" id="stats">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">The Receipts</p>
+      <h2>We beat traditional hummus on every macro.</h2>
+      <p>Per 100g — Summuh High-Protein vs. the leading traditional grocery brand.</p>
+    </div>
+
+    <div class="macro-grid">
+      <!-- PROTEIN (higher = better) -->
+      <div class="macro reveal d1">
+        <h4>Protein · per 100g</h4>
+        <div class="num"><span class="cv" data-count="10" data-suffix="g">0</span></div>
+        <div class="vs">Summuh — more is better</div>
+        <div class="bar win" data-w="100"><i></i></div>
+        <div class="bar-row"><span>Summuh</span><span>10g</span></div>
+        <div class="bar lose" data-w="63"><i></i></div>
+        <div class="bar-row them"><span>Traditional</span><span>6.3g</span></div>
+      </div>
+      <!-- FAT (lower = better) -->
+      <div class="macro reveal d2">
+        <h4>Fat · per 100g</h4>
+        <div class="num"><span class="cv" data-count="4.3" data-suffix="g" data-dec="1">0</span></div>
+        <div class="vs">Summuh — less is better</div>
+        <div class="bar win" data-w="43"><i></i></div>
+        <div class="bar-row"><span>Summuh</span><span>4.3g</span></div>
+        <div class="bar lose" data-w="100"><i></i></div>
+        <div class="bar-row them"><span>Traditional</span><span>10g</span></div>
+      </div>
+      <!-- CARBS (lower = better) -->
+      <div class="macro reveal d3">
+        <h4>Carbs · per 100g</h4>
+        <div class="num"><span class="cv" data-count="11.2" data-suffix="g" data-dec="1">0</span></div>
+        <div class="vs">Summuh — less is better</div>
+        <div class="bar win" data-w="81"><i></i></div>
+        <div class="bar-row"><span>Summuh</span><span>11.2g</span></div>
+        <div class="bar lose" data-w="100"><i></i></div>
+        <div class="bar-row them"><span>Traditional</span><span>13.8g</span></div>
+      </div>
+    </div>
+
+    <div class="scoreline">
+      <div class="score reveal d1"><div class="big">+<span class="cv" data-count="59" data-suffix="%">0</span></div><p>More Protein</p></div>
+      <div class="score reveal d2"><div class="big">−<span class="cv" data-count="57" data-suffix="%">0</span></div><p>Less Fat</p></div>
+      <div class="score reveal d3"><div class="big">−<span class="cv" data-count="19" data-suffix="%">0</span></div><p>Less Carbs</p></div>
+    </div>
+
+    <p class="fine reveal">Values per 100g. Comparison vs. leading traditional grocery hummus brand. Recipe values approximate before lab verification.</p>
+  </div>
+</section>
+
+<!-- ============ PILLARS ============ -->
+<section class="pillars pad">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">What's In It</p>
+      <h2>Three things we refused to compromise on.</h2>
+    </div>
+    <div class="pillar-grid">
+      <div class="pillar reveal d1">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="#F4D58A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6c-7 8-12 12-12 20a12 12 0 0024 0c0-8-5-12-12-20z"/><path d="M24 30v6"/></svg>
+        <h3>All Natural, Always.</h3>
+        <p>Whole-food ingredients. No whey isolates, no protein powders, no artificial anything. Just real food, blended right.</p>
+      </div>
+      <div class="pillar reveal d2">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="#F4D58A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18l-4 4 4 4M34 18l4 4-4 4"/><path d="M28 12l-8 24"/></svg>
+        <h3>High-Protein Alternative.</h3>
+        <p>10g per serving — 59% more than traditional hummus. Built for vegetarians who lift, runners who snack, and anyone tracking macros without giving up flavor.</p>
+      </div>
+      <div class="pillar reveal d3">
+        <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="#F4D58A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 26c0-8 6-14 14-14s14 6 14 14"/><path d="M8 26h32"/><path d="M16 34h16"/></svg>
+        <h3>Unreasonably Creamy.</h3>
+        <p>Texture you'd expect from a Mediterranean café, not a grocery aisle. Smooth, never chalky, no protein-powder aftertaste.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOUNDERS ============ -->
+<section class="founders pad" id="founders">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">The Co-CEOs</p>
+      <h2>Meet the makers.</h2>
+      <p>Better-tasting, higher-protein hummus. We're here to revolutionize the spread.</p>
+    </div>
+
+    <div class="founder-photo reveal d1">
+      <div class="ph">
+        <svg class="sun" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="20" fill="#E07A1F"/><g stroke="#E07A1F" stroke-width="6" stroke-linecap="round"><line x1="50" y1="14" x2="50" y2="2"/><line x1="50" y1="98" x2="50" y2="86"/><line x1="14" y1="50" x2="2" y2="50"/><line x1="98" y1="50" x2="86" y2="50"/><line x1="24" y1="24" x2="15" y2="15"/><line x1="85" y1="85" x2="76" y2="76"/><line x1="76" y1="24" x2="85" y2="15"/><line x1="15" y1="85" x2="24" y2="76"/></g></svg>
+        Drop your founder photo here<br><small>(Paarth, left · Advik, right — campus fountain)</small>
+      </div>
+      <span class="cap">Paarth (left) · Advik (right) · Frisco, TX</span>
+    </div>
+
+    <div class="bios">
+      <div class="bio reveal d1">
+        <p class="role">Co-CEO</p>
+        <h3>Paarth Dewan</h3>
+        <p>Paarth is from Frisco, Texas, and has been eating hummus practically his entire life. Studying film and business, he's spent years thinking about what it takes to craft products that actually mean something to the people who use them. Surrounded by vegetarian friends and family who constantly told him how hard it was to get real protein into a meal that actually filled them up, he and Advik decided to stop complaining and start cooking. He believes great products are built for everyone — and that hummus deserves a glow-up.</p>
+        <div class="meta">Film &amp; Business · Frisco, TX</div>
+      </div>
+      <div class="bio reveal d2">
+        <p class="role">Co-CEO</p>
+        <h3>Advik Dixit</h3>
+        <p>Advik is also from Frisco, Texas, and grew up in a vegetarian family with hummus on the table since birth. As someone who lifts seriously and obsesses over hitting his protein goal, he knows firsthand how hard it is to get there on a vegetarian diet — and how rare it is to find a high-protein option that actually tastes like real food. He brings the strategy side of SUMMUH, balancing analytical rigor with an obsession for getting every detail right.</p>
+        <div class="meta">Consulting &amp; M&amp;A · Frisco, TX · Film, Cricket, Football</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="reviews pad" id="reviews">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Taste Testers, Not Marketers</p>
+      <h2>Real reactions from our first batches.</h2>
+    </div>
+    <div class="review-grid">
+      <figure class="review reveal d1"><div class="stars">★★★★★</div><p>"Okay I genuinely wasn't expecting this to taste better than the hummus I already buy — but it does. Creamier, way more flavor, and the fact that I'm getting real protein out of it? I'd buy this every single time."</p><cite>— Rushabh R.</cite></figure>
+      <figure class="review reveal d2"><div class="stars">★★★★★</div><p>"I dipped a carrot in it expecting normal hummus and instead got the best hummus I've had in a long time. Way more flavor than the grocery stuff, and I love that there's actual protein in it. Going in my fridge on repeat."</p><cite>— Tanisha S.</cite></figure>
+      <figure class="review reveal d3"><div class="stars">★★★★★</div><p>"As a pescatarian, getting enough protein is honestly a daily puzzle, and most 'high-protein' stuff tastes like cardboard. Summuh tastes BETTER than the hummus I usually buy and gives me real protein. Kind of a cheat code."</p><cite>— Diwakar D.</cite></figure>
+      <figure class="review reveal d1"><div class="stars">★★★★★</div><p>"Honestly it tastes just like real hummus — the kind I'd actually order at a restaurant — except I'm getting a real chunk of protein out of it. I'd happily keep buying this just to hit my protein for the day without choking down another shake."</p><cite>— Ryan S.</cite></figure>
+      <figure class="review reveal d2"><div class="stars">★★★★★</div><p>"I spread it on my pita in the morning before work and I'm set. Quick, filling, and it actually keeps me full till lunch. Easiest breakfast I've added to my routine in a long time."</p><cite>— Kavya P.</cite></figure>
+      <figure class="review reveal d3"><div class="stars">★★★★★</div><p>"Blind test, no labels — I picked Summuh without hesitation. Then found out it had nearly double the protein. That's when it clicked for me."</p><cite>— UT Austin taste test</cite></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact pad" id="contact">
+  <div class="wrap">
+    <div class="contact-card reveal">
+      <svg class="sun" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="20" fill="#F4A300"/><g stroke="#F4A300" stroke-width="6" stroke-linecap="round"><line x1="50" y1="14" x2="50" y2="2"/><line x1="50" y1="98" x2="50" y2="86"/><line x1="14" y1="50" x2="2" y2="50"/><line x1="98" y1="50" x2="86" y2="50"/><line x1="24" y1="24" x2="15" y2="15"/><line x1="85" y1="85" x2="76" y2="76"/><line x1="76" y1="24" x2="85" y2="15"/><line x1="15" y1="85" x2="24" y2="76"/></g></svg>
+      <p class="eyebrow">Be First to Taste</p>
+      <h2>Get a jar before everyone else.</h2>
+      <p>In Dallas, Austin, LA, or New York? Reach out to try it now. Everywhere else — join the waitlist and you'll hear from us the moment our first big shipment lands.</p>
+      <div class="cities"><span>Dallas</span><span>Austin</span><span>LA</span><span>New York</span></div>
+
+      <form class="form" id="waitlist">
+        <input type="email" id="email" placeholder="you@example.com" required aria-label="Email address" />
+        <button type="submit" class="btn btn-primary">Notify Me</button>
+      </form>
+      <p class="thanks" id="thanks">You're on the list. Talk soon. ☀️</p>
+      <p class="form-note">No spam. Just a heads-up when we launch — and the occasional recipe.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="20" fill="#F4A300"/><g stroke="#F4A300" stroke-width="6" stroke-linecap="round"><line x1="50" y1="14" x2="50" y2="2"/><line x1="50" y1="98" x2="50" y2="86"/><line x1="14" y1="50" x2="2" y2="50"/><line x1="98" y1="50" x2="86" y2="50"/><line x1="24" y1="24" x2="15" y2="15"/><line x1="85" y1="85" x2="76" y2="76"/><line x1="76" y1="24" x2="85" y2="15"/><line x1="15" y1="85" x2="24" y2="76"/></g></svg>
+      <span class="name">SUMMUH HUMMUS</span>
+      <small>Frisco, TX · summuhhummus.com<br>Hummus, rewound.</small>
+    </div>
+    <div class="foot-col">
+      <h5>Explore</h5>
+      <a href="#story">Story</a>
+      <a href="#stats">Stats</a>
+      <a href="#founders">Founders</a>
+      <a href="#reviews">Reviews</a>
+    </div>
+    <div class="foot-col">
+      <h5>Follow</h5>
+      <a href="#" target="_blank" rel="noopener">Instagram</a>
+      <a href="#" target="_blank" rel="noopener">TikTok</a>
+      <a href="mailto:info@summuhhummus.com">info@summuhhummus.com</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© 2026 Summuh Hummus. All rights reserved.</span>
+    <span><em>Hummus, rewound.</em></span>
+  </div>
+</footer>
+
+<script>
+/* ---- generate sun rays (logo + halo) ---- */
+(function(){
+  const logoRays = document.getElementById('logo-rays');
+  for(let i=0;i<12;i++){
+    const a = (i*30)*Math.PI/180;
+    const x1=120+Math.cos(a)*72, y1=120+Math.sin(a)*72;
+    const x2=120+Math.cos(a)*92, y2=120+Math.sin(a)*92;
+    const l=document.createElementNS('http://www.w3.org/2000/svg','line');
+    l.setAttribute('x1',x1.toFixed(1));l.setAttribute('y1',y1.toFixed(1));
+    l.setAttribute('x2',x2.toFixed(1));l.setAttribute('y2',y2.toFixed(1));
+    logoRays.appendChild(l);
+  }
+  const halo = document.getElementById('halo-rays');
+  for(let i=0;i<48;i++){
+    const a=(i*7.5)*Math.PI/180;
+    const r1 = i%2? 150:120, r2=190;
+    const x1=200+Math.cos(a)*r1, y1=200+Math.sin(a)*r1;
+    const x2=200+Math.cos(a)*r2, y2=200+Math.sin(a)*r2;
+    const l=document.createElementNS('http://www.w3.org/2000/svg','line');
+    l.setAttribute('x1',x1.toFixed(1));l.setAttribute('y1',y1.toFixed(1));
+    l.setAttribute('x2',x2.toFixed(1));l.setAttribute('y2',y2.toFixed(1));
+    halo.appendChild(l);
+  }
+})();
+
+/* ---- sticky nav ---- */
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>40),{passive:true});
+
+/* ---- count-up ---- */
+function countUp(el){
+  const target=parseFloat(el.dataset.count);
+  const dec=parseInt(el.dataset.dec||0);
+  const suffix=el.dataset.suffix||'';
+  if(target===0){el.textContent='0'+suffix;return;}
+  const dur=1400, t0=performance.now();
+  const base=el.childNodes[0]; // keep <span> children intact for .big
+  function frame(now){
+    const p=Math.min((now-t0)/dur,1);
+    const eased=1-Math.pow(1-p,3);
+    const val=(target*eased).toFixed(dec);
+    if(el.classList.contains('cv')) el.textContent=val+suffix;
+    else el.firstChild.textContent=val+suffix;
+    if(p<1)requestAnimationFrame(frame);
+    else { if(el.classList.contains('cv')) el.textContent=(dec?target.toFixed(dec):target)+suffix;
+           else el.firstChild.textContent=(dec?target.toFixed(dec):target)+suffix; }
+  }
+  requestAnimationFrame(frame);
+}
+
+/* ---- reveal + trigger animations ---- */
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    e.target.classList.add('in');
+    // counters within
+    e.target.querySelectorAll('[data-count]').forEach(countUp);
+    if(e.target.matches('[data-count]')) countUp(e.target);
+    // bars
+    e.target.querySelectorAll('.bar').forEach(b=>{b.querySelector('i').style.width=b.dataset.w+'%';});
+    io.unobserve(e.target);
+  });
+},{threshold:.2});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ---- waitlist (static-friendly) ---- */
+const form=document.getElementById('waitlist');
+form.addEventListener('submit',e=>{
+  e.preventDefault();
+  const email=document.getElementById('email').value;
+  document.getElementById('thanks').classList.add('show');
+  form.style.display='none';
+  // OPTIONAL: forward the signup. Replace the address below, or swap in a Formspree endpoint.
+  // window.location.href='mailto:info@summuhhummus.com?subject=Waitlist&body='+encodeURIComponent(email);
+  console.log('Waitlist signup:',email);
+});
+</script>
+</body>
+</html>
