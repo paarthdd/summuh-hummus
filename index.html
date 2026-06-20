@@ -621,16 +621,34 @@ const io=new IntersectionObserver((entries)=>{
 },{threshold:.2});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-/* ---- waitlist (static-friendly) ---- */
+/* ---- waitlist (Formspree) ----
+   1. Create a free form at https://formspree.io  (sends signups to your inbox + dashboard)
+   2. Paste your form ID between the quotes below, e.g. "xmyzabcd"
+   Until you do, the form still shows a thank-you and logs the email to the console. */
+const FORMSPREE_ID = "";   // <-- paste your Formspree form ID here
+
 const form=document.getElementById('waitlist');
-form.addEventListener('submit',e=>{
+const thanks=document.getElementById('thanks');
+form.addEventListener('submit',async e=>{
   e.preventDefault();
   const email=document.getElementById('email').value;
-  document.getElementById('thanks').classList.add('show');
-  form.style.display='none';
-  // OPTIONAL: forward the signup. Replace the address below, or swap in a Formspree endpoint.
-  // window.location.href='mailto:info@summuhhummus.com?subject=Waitlist&body='+encodeURIComponent(email);
-  console.log('Waitlist signup:',email);
+  const done=()=>{thanks.classList.add('show');form.style.display='none';};
+  if(FORMSPREE_ID){
+    try{
+      const res=await fetch('https://formspree.io/f/'+FORMSPREE_ID,{
+        method:'POST',
+        headers:{'Accept':'application/json','Content-Type':'application/json'},
+        body:JSON.stringify({email})
+      });
+      if(res.ok){done();}
+      else{thanks.textContent='Hmm, that didn’t go through — email us at info@summuhhummus.com';thanks.classList.add('show');}
+    }catch(err){
+      thanks.textContent='Network hiccup — email us at info@summuhhummus.com';thanks.classList.add('show');
+    }
+  } else {
+    console.log('Waitlist signup (no Formspree ID set yet):',email);
+    done();
+  }
 });
 </script>
 </body>

@@ -28,7 +28,7 @@ python3 -m http.server 8000
 ## Things you'll want to swap in
 - **Founder photo** — the placeholder block in the *Founders* section. Drop in a real image: add the file (e.g. `founders.jpg`) and replace the `.ph` placeholder `<div>` with `<img src="founders.jpg" alt="Paarth and Advik" style="width:100%;height:100%;object-fit:cover">`.
 - **Social links** — Instagram / TikTok `href="#"` in the footer.
-- **Waitlist form** — currently shows a thank-you message and logs the email to the browser console (works on a static host). To actually collect emails, create a free [Formspree](https://formspree.io) form and set `action="https://formspree.io/f/XXXX" method="POST"` on the `<form id="waitlist">`, or uncomment the `mailto:` line in the script.
+- **Waitlist form** — wired for [Formspree](https://formspree.io). Create a free form, then paste your form ID into `const FORMSPREE_ID = ""` near the bottom of `index.html`. Signups will land in your Formspree inbox/dashboard. Until you add the ID, the form still shows a thank-you and logs the email to the console.
 - **Stat numbers** — edit the `data-count` values in the *Stats* section if your lab-verified macros change.
 
 ## Edit the copy
