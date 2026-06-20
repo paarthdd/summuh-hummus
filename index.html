@@ -586,7 +586,11 @@ function countUp(el){
   const target=parseFloat(el.dataset.count);
   const dec=parseInt(el.dataset.dec||0);
   const suffix=el.dataset.suffix||'';
-  if(target===0){el.textContent='0'+suffix;return;}
+  if(target===0){
+    if(el.classList.contains('cv')) el.textContent='0'+suffix;
+    else el.firstChild.textContent='0'+suffix; // preserve nested <span> label
+    return;
+  }
   const dur=1400, t0=performance.now();
   const base=el.childNodes[0]; // keep <span> children intact for .big
   function frame(now){
