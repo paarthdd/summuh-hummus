@@ -181,18 +181,31 @@ section{position:relative}
 
 /* ---------- FOUNDERS ---------- */
 .founders{background:var(--paper)}
-.founder-photo{margin-top:46px;border-radius:24px;overflow:hidden;background:linear-gradient(135deg,var(--sand),var(--cream-2));
-  aspect-ratio:16/7;display:flex;align-items:center;justify-content:center;position:relative;border:1px solid rgba(36,28,16,.1)}
-.founder-photo .ph{text-align:center;color:var(--ink-soft);padding:24px}
-.founder-photo .ph .sun{width:64px;height:64px;margin:0 auto 14px;opacity:.65}
-.founder-photo .cap{position:absolute;bottom:14px;left:18px;font-size:.78rem;background:rgba(36,28,16,.7);color:var(--cream);padding:6px 12px;border-radius:100px}
+.founder-photo{margin:46px auto 0;max-width:470px;border-radius:26px;overflow:hidden;aspect-ratio:4/5;
+  position:relative;border:1px solid rgba(36,28,16,.12);box-shadow:0 34px 70px -34px rgba(36,28,16,.55)}
+.founder-photo img{width:100%;height:100%;object-fit:cover;object-position:center 38%;display:block}
+.founder-photo .grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(36,28,16,.62) 0%,rgba(36,28,16,0) 38%)}
+.founder-photo .cap{position:absolute;bottom:16px;left:18px;right:18px;color:var(--cream)}
+.founder-photo .cap .nm{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;line-height:1.1}
+.founder-photo .cap .loc{display:inline-flex;align-items:center;gap:6px;margin-top:6px;font-size:.78rem;letter-spacing:.06em;
+  text-transform:uppercase;font-weight:600;opacity:.9}
+.founder-photo .cap .loc svg{width:13px;height:13px}
 .bios{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:40px}
 @media(max-width:760px){.bios{grid-template-columns:1fr}}
-.bio{background:var(--cream);border:1px solid rgba(36,28,16,.1);border-radius:22px;padding:30px}
-.bio .role{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);font-weight:600}
-.bio h3{font-size:1.8rem;margin:6px 0 14px}
+.bio{background:var(--cream);border:1px solid rgba(36,28,16,.1);border-radius:24px;padding:14px 14px 30px;overflow:hidden;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.bio:hover{transform:translateY(-5px);box-shadow:0 26px 50px -28px rgba(36,28,16,.45)}
+.bio-photo{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/5;margin-bottom:22px;background:var(--ink)}
+.bio-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);transition:transform .6s var(--ease),filter .5s var(--ease);display:block}
+.bio-photo::after{content:"";position:absolute;inset:0;background:var(--gold-deep);mix-blend-mode:soft-light;opacity:.22;transition:opacity .5s var(--ease)}
+.bio:hover .bio-photo img{transform:scale(1.05)}
+.bio:hover .bio-photo::after{opacity:0}
+.bio-role{position:absolute;top:14px;left:14px;z-index:2;background:rgba(36,28,16,.78);color:var(--cream);
+  font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;padding:6px 12px;border-radius:100px;backdrop-filter:blur(4px)}
+.bio .role{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;padding:0 16px}
+.bio h3{font-size:1.8rem;margin:6px 0 14px;padding:0 16px}
+.bio p:not(.role){padding:0 16px}
 .bio p{color:var(--ink-soft);font-size:1rem}
-.bio .meta{margin-top:18px;font-size:.82rem;color:var(--ink);font-weight:600;border-top:1px solid rgba(36,28,16,.12);padding-top:16px}
+.bio .meta{margin:18px 16px 0;font-size:.82rem;color:var(--ink);font-weight:600;border-top:1px solid rgba(36,28,16,.12);padding-top:16px}
 
 /* ---------- REVIEWS ---------- */
 .reviews{background:var(--terra);color:var(--cream)}
@@ -310,7 +323,7 @@ footer{background:var(--ink);color:var(--cream);padding:70px 0 40px}
       </text>
     </svg>
 
-    <p class="palindrome">S&middot;U&middot;M&middot;M&middot;U&middot;H&nbsp;&nbsp;<b>↔ a perfect palindrome ↔</b>&nbsp;&nbsp;H&middot;U&middot;M&middot;M&middot;U&middot;S</p>
+    <p class="palindrome"><b>SUMMUH</b>&nbsp;&nbsp;·&nbsp;&nbsp;a perfect palindrome&nbsp;&nbsp;·&nbsp;&nbsp;<b>HUMMUS</b></p>
 
     <h1>Hummus, <em>Rewound.</em></h1>
     <p class="tag">Real protein. All natural. Unreasonably creamy. The spread you already love — fixed.</p>
@@ -349,17 +362,18 @@ footer{background:var(--ink);color:var(--cream);padding:70px 0 40px}
 
     <div class="story-grid">
       <aside class="story-aside reveal">
-        <div class="big" data-count="14" data-suffix="+">0<span>recipe iterations</span></div>
+        <div class="big" data-count="10" data-suffix="g">0<span>protein per serving</span></div>
         <div class="aside-rule"></div>
-        <div class="big" data-count="250" data-suffix="+">0<span>blind taste tests</span></div>
+        <div class="big" data-count="400" data-suffix="+">0<span>students blind-tested</span></div>
         <div class="aside-rule"></div>
-        <div class="big" data-count="0" data-suffix="">0<span>who picked retail over us</span></div>
+        <div class="big" data-count="0" data-suffix="">0<span>chose retail over us</span></div>
       </aside>
 
       <div class="story-body reveal d1">
-        <p>Paarth and Advik grew up in Frisco, Texas, eating hummus the way some kids eat peanut butter: daily, obsessively, and with whatever happened to be in the fridge. Between them they have a wide circle of vegetarian friends and family, and the same complaint surfaced at nearly every dinner table — it's hard to get enough protein, and even harder to find something that actually fills you up.</p>
-        <p>So they did what any pair of stubborn twenty-somethings would do. They got into the kitchen with dull knives, a wobbly food processor, and far too many opinions about what hummus could be.</p>
-        <p>After more than fourteen recipe iterations and over two hundred and fifty blind taste tests across UT Austin, they arrived at a hummus that genuinely tastes better than what's already on the shelf — creamier, more flavorful, and packed with real protein from whole foods. No whey isolates, no shortcuts, no compromise on taste. Not a single tester chose the retail jar.</p>
+        <p>Paarth and Advik have loved hummus since they were kids. Growing up in Frisco, Texas, it was a fixture of childhood — on shawarmas, scooped with celery, paired with just about anything in the fridge.</p>
+        <p>As they got older, they fell into the same loop as everyone else: the protein chase. More protein, every meal, every day. But being tall and lean, hitting a gram of protein per pound of bodyweight was genuinely hard — and between recruiting and the daily grind, good options were thin. They were also chasing something bigger: a passion worth turning into work, the kind where your passion becomes the job.</p>
+        <p>The moment came at Insomnia Cookies. Mid-conversation, they spotted a cookie with 10 grams of protein — and it clicked. They could build a protein alternative of their own. The market was already crowded with protein products, so they went somewhere no one had: a spread. A protein-packed condiment nobody thinks of as a protein source, with a thick, satisfying texture that's genuinely <em>filling</em>. Vegetarians struggle with that more than anyone, so they set out to build something you could pair with anything and actually feel full.</p>
+        <p>After plenty of trial and error, they landed on an all-natural, homemade recipe — then put it to the test. Blind-tasted against retail hummus with 400 students at UT Austin, not a single person chose the retail jar. That was all the fire they needed to go revolutionize the hummus game.</p>
 
         <blockquote class="pullquote">
           "We didn't want to invent a new food. We wanted to fix one we already loved."
@@ -434,18 +448,18 @@ footer{background:var(--ink);color:var(--cream);padding:70px 0 40px}
     <div class="pillar-grid">
       <div class="pillar reveal d1">
         <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="#F4D58A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M24 6c-7 8-12 12-12 20a12 12 0 0024 0c0-8-5-12-12-20z"/><path d="M24 30v6"/></svg>
-        <h3>All Natural, Always.</h3>
+        <h3>Sum-thing Natural.</h3>
         <p>Whole-food ingredients. No whey isolates, no protein powders, no artificial anything. Just real food, blended right.</p>
       </div>
       <div class="pillar reveal d2">
         <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="#F4D58A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18l-4 4 4 4M34 18l4 4-4 4"/><path d="M28 12l-8 24"/></svg>
-        <h3>High-Protein Alternative.</h3>
+        <h3>Sum-diddly Humption.</h3>
         <p>10g per serving — 59% more than traditional hummus. Built for vegetarians who lift, runners who snack, and anyone tracking macros without giving up flavor.</p>
       </div>
       <div class="pillar reveal d3">
         <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="#F4D58A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 26c0-8 6-14 14-14s14 6 14 14"/><path d="M8 26h32"/><path d="M16 34h16"/></svg>
-        <h3>Unreasonably Creamy.</h3>
-        <p>Texture you'd expect from a Mediterranean café, not a grocery aisle. Smooth, never chalky, no protein-powder aftertaste.</p>
+        <h3>Sum Kinda Creamy.</h3>
+        <p>Unreasonably smooth — texture you'd expect from a Mediterranean café, not a grocery aisle. Never chalky, no protein-powder aftertaste.</p>
       </div>
     </div>
   </div>
@@ -461,22 +475,26 @@ footer{background:var(--ink);color:var(--cream);padding:70px 0 40px}
     </div>
 
     <div class="founder-photo reveal d1">
-      <div class="ph">
-        <svg class="sun" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="20" fill="#E07A1F"/><g stroke="#E07A1F" stroke-width="6" stroke-linecap="round"><line x1="50" y1="14" x2="50" y2="2"/><line x1="50" y1="98" x2="50" y2="86"/><line x1="14" y1="50" x2="2" y2="50"/><line x1="98" y1="50" x2="86" y2="50"/><line x1="24" y1="24" x2="15" y2="15"/><line x1="85" y1="85" x2="76" y2="76"/><line x1="76" y1="24" x2="85" y2="15"/><line x1="15" y1="85" x2="24" y2="76"/></g></svg>
-        Drop your founder photo here<br><small>(Paarth, left · Advik, right — campus fountain)</small>
+      <img src="founders.jpg" alt="Paarth and Advik, co-founders of Summuh Hummus, in Puerto Rico" />
+      <div class="grad"></div>
+      <div class="cap">
+        <div class="nm">Paarth &amp; Advik</div>
+        <div class="loc">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-11a7 7 0 10-14 0c0 4.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+          Puerto Rico
+        </div>
       </div>
-      <span class="cap">Paarth (left) · Advik (right) · Frisco, TX</span>
     </div>
 
     <div class="bios">
       <div class="bio reveal d1">
-        <p class="role">Co-CEO</p>
+        <div class="bio-photo"><span class="bio-role">Co-CEO</span><img src="paarth.jpg" alt="Paarth Dewan" /></div>
         <h3>Paarth Dewan</h3>
         <p>Paarth is from Frisco, Texas, and has been eating hummus practically his entire life. Studying film and business, he's spent years thinking about what it takes to craft products that actually mean something to the people who use them. Surrounded by vegetarian friends and family who constantly told him how hard it was to get real protein into a meal that actually filled them up, he and Advik decided to stop complaining and start cooking. He believes great products are built for everyone — and that hummus deserves a glow-up.</p>
         <div class="meta">Film &amp; Business · Frisco, TX</div>
       </div>
       <div class="bio reveal d2">
-        <p class="role">Co-CEO</p>
+        <div class="bio-photo"><span class="bio-role">Co-CEO</span><img src="advik.jpg" alt="Advik Dixit" /></div>
         <h3>Advik Dixit</h3>
         <p>Advik is also from Frisco, Texas, and grew up in a vegetarian family with hummus on the table since birth. As someone who lifts seriously and obsesses over hitting his protein goal, he knows firsthand how hard it is to get there on a vegetarian diet — and how rare it is to find a high-protein option that actually tastes like real food. He brings the strategy side of SUMMUH, balancing analytical rigor with an obsession for getting every detail right.</p>
         <div class="meta">Consulting &amp; M&amp;A · Frisco, TX · Film, Cricket, Football</div>
