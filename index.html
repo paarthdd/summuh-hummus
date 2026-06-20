@@ -7,10 +7,22 @@
 <meta name="description" content="Summuh Hummus: real protein, all natural, unreasonably creamy. 10g of protein per serving from whole foods. Hummus, rewound." />
 <meta name="theme-color" content="#F4A300" />
 
-<!-- Open Graph -->
+<!-- Open Graph / link + phone preview -->
 <meta property="og:title" content="Summuh Hummus — Hummus, Rewound." />
 <meta property="og:description" content="Real protein. All natural. Unreasonably creamy. 10g of protein from whole foods." />
 <meta property="og:type" content="website" />
+<meta property="og:url" content="https://summuhhummus.com/" />
+<meta property="og:image" content="https://summuhhummus.com/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Summuh Hummus — Hummus, Rewound." />
+<meta name="twitter:description" content="Real protein. All natural. Unreasonably creamy." />
+<meta name="twitter:image" content="https://summuhhummus.com/og.png" />
+
+<!-- App / home-screen icons -->
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -192,20 +204,12 @@ section{position:relative}
 .founder-photo .cap .loc svg{width:13px;height:13px}
 .bios{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:40px}
 @media(max-width:760px){.bios{grid-template-columns:1fr}}
-.bio{background:var(--cream);border:1px solid rgba(36,28,16,.1);border-radius:24px;padding:14px 14px 30px;overflow:hidden;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.bio{background:var(--cream);border:1px solid rgba(36,28,16,.1);border-radius:22px;padding:30px;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
 .bio:hover{transform:translateY(-5px);box-shadow:0 26px 50px -28px rgba(36,28,16,.45)}
-.bio-photo{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/5;margin-bottom:22px;background:var(--ink)}
-.bio-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);transition:transform .6s var(--ease),filter .5s var(--ease);display:block}
-.bio-photo::after{content:"";position:absolute;inset:0;background:var(--gold-deep);mix-blend-mode:soft-light;opacity:.22;transition:opacity .5s var(--ease)}
-.bio:hover .bio-photo img{transform:scale(1.05)}
-.bio:hover .bio-photo::after{opacity:0}
-.bio-role{position:absolute;top:14px;left:14px;z-index:2;background:rgba(36,28,16,.78);color:var(--cream);
-  font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;padding:6px 12px;border-radius:100px;backdrop-filter:blur(4px)}
-.bio .role{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;padding:0 16px}
-.bio h3{font-size:1.8rem;margin:6px 0 14px;padding:0 16px}
-.bio p:not(.role){padding:0 16px}
+.bio .role{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);font-weight:600}
+.bio h3{font-size:1.8rem;margin:6px 0 14px}
 .bio p{color:var(--ink-soft);font-size:1rem}
-.bio .meta{margin:18px 16px 0;font-size:.82rem;color:var(--ink);font-weight:600;border-top:1px solid rgba(36,28,16,.12);padding-top:16px}
+.bio .meta{margin-top:18px;font-size:.82rem;color:var(--ink);font-weight:600;border-top:1px solid rgba(36,28,16,.12);padding-top:16px}
 
 /* ---------- REVIEWS ---------- */
 .reviews{background:var(--terra);color:var(--cream)}
@@ -294,39 +298,44 @@ footer{background:var(--ink);color:var(--cream);padding:70px 0 40px}
     <!-- ===== LOGO: sun with arched text ===== -->
     <svg class="logo-mark" viewBox="0 0 240 240" role="img" aria-label="Summuh Hummus logo: a smiling sun with SUMMUH arched above and HUMMUS arched below">
       <defs>
-        <path id="arcTop" d="M 48 120 A 72 72 0 0 1 192 120" />
-        <path id="arcBot" d="M 192 120 A 72 72 0 0 1 48 120" />
+        <path id="arcTop" d="M 36 120 A 84 84 0 0 1 204 120" />
+        <path id="arcBot" d="M 204 120 A 84 84 0 0 1 36 120" />
         <radialGradient id="sunFill" cx="40%" cy="35%" r="75%">
-          <stop offset="0%" stop-color="#FFD25A"/>
-          <stop offset="60%" stop-color="#F4A300"/>
+          <stop offset="0%" stop-color="#FFD86B"/>
+          <stop offset="58%" stop-color="#F4A300"/>
           <stop offset="100%" stop-color="#E07A1F"/>
         </radialGradient>
       </defs>
 
-      <!-- rays -->
-      <g id="logo-rays" stroke="#E07A1F" stroke-width="7" stroke-linecap="round"></g>
+      <!-- rays (short, tucked between the face and the text ring) -->
+      <g id="logo-rays" stroke="#E07A1F" stroke-width="6" stroke-linecap="round"></g>
 
       <!-- sun face -->
-      <circle cx="120" cy="120" r="46" fill="url(#sunFill)"/>
-      <!-- eyes -->
-      <circle cx="106" cy="113" r="4.6" fill="#241C10"/>
-      <circle cx="134" cy="113" r="4.6" fill="#241C10"/>
-      <!-- smile -->
-      <path d="M 103 128 Q 120 144 137 128" stroke="#241C10" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <circle cx="120" cy="120" r="40" fill="url(#sunFill)"/>
+      <!-- rosy cheeks -->
+      <circle cx="101" cy="127" r="5" fill="#E0866B" opacity=".5"/>
+      <circle cx="139" cy="127" r="5" fill="#E0866B" opacity=".5"/>
+      <!-- cute eyes with highlights -->
+      <circle cx="107" cy="115" r="6" fill="#241C10"/>
+      <circle cx="133" cy="115" r="6" fill="#241C10"/>
+      <circle cx="104.6" cy="112.6" r="2.2" fill="#FFF7E8"/>
+      <circle cx="130.6" cy="112.6" r="2.2" fill="#FFF7E8"/>
+      <!-- sweet smile -->
+      <path d="M 105 130 Q 120 146 135 130" stroke="#241C10" stroke-width="4.5" fill="none" stroke-linecap="round"/>
 
-      <!-- arched text -->
-      <text font-family="Fraunces, serif" font-weight="700" font-size="25" letter-spacing="5" fill="#241C10">
-        <textPath href="#arcTop" startOffset="50%" text-anchor="middle">SUMMUH</textPath>
+      <!-- arched text with dot separators between letters -->
+      <text font-family="Fraunces, serif" font-weight="700" font-size="22" letter-spacing="1.5" fill="#241C10">
+        <textPath href="#arcTop" startOffset="50%" text-anchor="middle">S·U·M·M·U·H</textPath>
       </text>
-      <text font-family="Fraunces, serif" font-weight="700" font-size="25" letter-spacing="5" fill="#241C10">
-        <textPath href="#arcBot" startOffset="50%" text-anchor="middle">HUMMUS</textPath>
+      <text font-family="Fraunces, serif" font-weight="700" font-size="22" letter-spacing="1.5" fill="#241C10">
+        <textPath href="#arcBot" startOffset="50%" text-anchor="middle">H·U·M·M·U·S</textPath>
       </text>
     </svg>
 
     <p class="palindrome"><b>SUMMUH</b>&nbsp;&nbsp;·&nbsp;&nbsp;a perfect palindrome&nbsp;&nbsp;·&nbsp;&nbsp;<b>HUMMUS</b></p>
 
     <h1>Hummus, <em>Rewound.</em></h1>
-    <p class="tag">Real protein. All natural. Unreasonably creamy. The spread you already love — fixed.</p>
+    <p class="tag">Real protein. All natural. Unreasonably creamy. The spread you already love — perfected.</p>
 
     <div class="chips">
       <span class="chip"><span class="dot"></span>10g Protein</span>
@@ -373,10 +382,10 @@ footer{background:var(--ink);color:var(--cream);padding:70px 0 40px}
         <p>Paarth and Advik have loved hummus since they were kids. Growing up in Frisco, Texas, it was a fixture of childhood — on shawarmas, scooped with celery, paired with just about anything in the fridge.</p>
         <p>As they got older, they fell into the same loop as everyone else: the protein chase. More protein, every meal, every day. But being tall and lean, hitting a gram of protein per pound of bodyweight was genuinely hard — and between recruiting and the daily grind, good options were thin. They were also chasing something bigger: a passion worth turning into work, the kind where your passion becomes the job.</p>
         <p>The moment came at Insomnia Cookies. Mid-conversation, they spotted a cookie with 10 grams of protein — and it clicked. They could build a protein alternative of their own. The market was already crowded with protein products, so they went somewhere no one had: a spread. A protein-packed condiment nobody thinks of as a protein source, with a thick, satisfying texture that's genuinely <em>filling</em>. Vegetarians struggle with that more than anyone, so they set out to build something you could pair with anything and actually feel full.</p>
-        <p>After plenty of trial and error, they landed on an all-natural, homemade recipe — then put it to the test. Blind-tasted against retail hummus with 400 students at UT Austin, not a single person chose the retail jar. That was all the fire they needed to go revolutionize the hummus game.</p>
+        <p>After plenty of trial and error, they landed on an all-natural, homemade recipe — then put it to the test. Blind-tasted against Sabra with 400 students at UT Austin, not a single person chose the store-bought jar. That was all the fire they needed to go revolutionize the hummus game.</p>
 
         <blockquote class="pullquote">
-          "We didn't want to invent a new food. We wanted to fix one we already loved."
+          "We didn't want to invent a new food. We wanted to perfect one we already loved."
           <cite>— Paarth &amp; Advik</cite>
         </blockquote>
 
@@ -392,7 +401,7 @@ footer{background:var(--ink);color:var(--cream);padding:70px 0 40px}
     <div class="section-head reveal">
       <p class="eyebrow">The Receipts</p>
       <h2>We beat traditional hummus on every macro.</h2>
-      <p>Per 100g — Summuh High-Protein vs. the leading traditional grocery brand.</p>
+      <p>Per 100g — Summuh High-Protein vs. Sabra Classic, the leading traditional brand.</p>
     </div>
 
     <div class="macro-grid">
@@ -404,7 +413,7 @@ footer{background:var(--ink);color:var(--cream);padding:70px 0 40px}
         <div class="bar win" data-w="100"><i></i></div>
         <div class="bar-row"><span>Summuh</span><span>10g</span></div>
         <div class="bar lose" data-w="63"><i></i></div>
-        <div class="bar-row them"><span>Traditional</span><span>6.3g</span></div>
+        <div class="bar-row them"><span>Sabra</span><span>6.3g</span></div>
       </div>
       <!-- FAT (lower = better) -->
       <div class="macro reveal d2">
@@ -414,7 +423,7 @@ footer{background:var(--ink);color:var(--cream);padding:70px 0 40px}
         <div class="bar win" data-w="43"><i></i></div>
         <div class="bar-row"><span>Summuh</span><span>4.3g</span></div>
         <div class="bar lose" data-w="100"><i></i></div>
-        <div class="bar-row them"><span>Traditional</span><span>10g</span></div>
+        <div class="bar-row them"><span>Sabra</span><span>10g</span></div>
       </div>
       <!-- CARBS (lower = better) -->
       <div class="macro reveal d3">
@@ -424,7 +433,7 @@ footer{background:var(--ink);color:var(--cream);padding:70px 0 40px}
         <div class="bar win" data-w="81"><i></i></div>
         <div class="bar-row"><span>Summuh</span><span>11.2g</span></div>
         <div class="bar lose" data-w="100"><i></i></div>
-        <div class="bar-row them"><span>Traditional</span><span>13.8g</span></div>
+        <div class="bar-row them"><span>Sabra</span><span>13.8g</span></div>
       </div>
     </div>
 
@@ -434,7 +443,7 @@ footer{background:var(--ink);color:var(--cream);padding:70px 0 40px}
       <div class="score reveal d3"><div class="big">−<span class="cv" data-count="19" data-suffix="%">0</span></div><p>Less Carbs</p></div>
     </div>
 
-    <p class="fine reveal">Values per 100g. Comparison vs. leading traditional grocery hummus brand. Recipe values approximate before lab verification.</p>
+    <p class="fine reveal">Values per 100g. Comparison vs. Sabra Classic hummus. Recipe values approximate before lab verification.</p>
   </div>
 </section>
 
@@ -458,7 +467,7 @@ footer{background:var(--ink);color:var(--cream);padding:70px 0 40px}
       </div>
       <div class="pillar reveal d3">
         <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="#F4D58A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 26c0-8 6-14 14-14s14 6 14 14"/><path d="M8 26h32"/><path d="M16 34h16"/></svg>
-        <h3>Sum Kinda Creamy.</h3>
+        <h3>Sum-Too Creamy.</h3>
         <p>Unreasonably smooth — texture you'd expect from a Mediterranean café, not a grocery aisle. Never chalky, no protein-powder aftertaste.</p>
       </div>
     </div>
@@ -488,13 +497,13 @@ footer{background:var(--ink);color:var(--cream);padding:70px 0 40px}
 
     <div class="bios">
       <div class="bio reveal d1">
-        <div class="bio-photo"><span class="bio-role">Co-CEO</span><img src="paarth.jpg" alt="Paarth Dewan" /></div>
+        <p class="role">Co-CEO</p>
         <h3>Paarth Dewan</h3>
         <p>Paarth is from Frisco, Texas, and has been eating hummus practically his entire life. Studying film and business, he's spent years thinking about what it takes to craft products that actually mean something to the people who use them. Surrounded by vegetarian friends and family who constantly told him how hard it was to get real protein into a meal that actually filled them up, he and Advik decided to stop complaining and start cooking. He believes great products are built for everyone — and that hummus deserves a glow-up.</p>
         <div class="meta">Film &amp; Business · Frisco, TX</div>
       </div>
       <div class="bio reveal d2">
-        <div class="bio-photo"><span class="bio-role">Co-CEO</span><img src="advik.jpg" alt="Advik Dixit" /></div>
+        <p class="role">Co-CEO</p>
         <h3>Advik Dixit</h3>
         <p>Advik is also from Frisco, Texas, and grew up in a vegetarian family with hummus on the table since birth. As someone who lifts seriously and obsesses over hitting his protein goal, he knows firsthand how hard it is to get there on a vegetarian diet — and how rare it is to find a high-protein option that actually tastes like real food. He brings the strategy side of SUMMUH, balancing analytical rigor with an obsession for getting every detail right.</p>
         <div class="meta">Consulting &amp; M&amp;A · Frisco, TX · Film, Cricket, Football</div>
@@ -516,7 +525,7 @@ footer{background:var(--ink);color:var(--cream);padding:70px 0 40px}
       <figure class="review reveal d3"><div class="stars">★★★★★</div><p>"As a pescatarian, getting enough protein is honestly a daily puzzle, and most 'high-protein' stuff tastes like cardboard. Summuh tastes BETTER than the hummus I usually buy and gives me real protein. Kind of a cheat code."</p><cite>— Diwakar D.</cite></figure>
       <figure class="review reveal d1"><div class="stars">★★★★★</div><p>"Honestly it tastes just like real hummus — the kind I'd actually order at a restaurant — except I'm getting a real chunk of protein out of it. I'd happily keep buying this just to hit my protein for the day without choking down another shake."</p><cite>— Ryan S.</cite></figure>
       <figure class="review reveal d2"><div class="stars">★★★★★</div><p>"I spread it on my pita in the morning before work and I'm set. Quick, filling, and it actually keeps me full till lunch. Easiest breakfast I've added to my routine in a long time."</p><cite>— Kavya P.</cite></figure>
-      <figure class="review reveal d3"><div class="stars">★★★★★</div><p>"Blind test, no labels — I picked Summuh without hesitation. Then found out it had nearly double the protein. That's when it clicked for me."</p><cite>— UT Austin taste test</cite></figure>
+      <figure class="review reveal d3"><div class="stars">★★★★★</div><p>"Blind test, no labels — I picked Summuh without hesitation. Then found out it had nearly double the protein. That's when it clicked for me."</p><cite>— Arsh K.</cite></figure>
     </div>
   </div>
 </section>
@@ -575,8 +584,8 @@ footer{background:var(--ink);color:var(--cream);padding:70px 0 40px}
   const logoRays = document.getElementById('logo-rays');
   for(let i=0;i<12;i++){
     const a = (i*30)*Math.PI/180;
-    const x1=120+Math.cos(a)*72, y1=120+Math.sin(a)*72;
-    const x2=120+Math.cos(a)*92, y2=120+Math.sin(a)*92;
+    const x1=120+Math.cos(a)*45, y1=120+Math.sin(a)*45;
+    const x2=120+Math.cos(a)*59, y2=120+Math.sin(a)*59;
     const l=document.createElementNS('http://www.w3.org/2000/svg','line');
     l.setAttribute('x1',x1.toFixed(1));l.setAttribute('y1',y1.toFixed(1));
     l.setAttribute('x2',x2.toFixed(1));l.setAttribute('y2',y2.toFixed(1));
