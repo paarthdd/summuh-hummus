@@ -48,7 +48,7 @@
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:78px}
 body{
   font-family:'Space Grotesk',system-ui,sans-serif;
   background:var(--cream);
@@ -255,6 +255,34 @@ footer{background:var(--ink);color:var(--cream);padding:70px 0 40px}
 .foot-col a:hover{opacity:1;color:var(--gold)}
 .foot-bottom{margin-top:50px;padding-top:24px;border-top:1px solid rgba(251,241,220,.15);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.8rem;opacity:.6}
 .foot-bottom em{font-family:'Fraunces';font-style:italic}
+
+/* ---------- PHONE POLISH ---------- */
+@media(max-width:560px){
+  .wrap{padding:0 20px}
+  nav{padding:12px 18px}
+  nav.solid{padding:9px 18px}
+  .nav-brand{font-size:.98rem;gap:8px}
+  .nav-brand svg{width:26px;height:26px}
+  .nav-cta{padding:8px 14px;font-size:.78rem}
+  .pad{padding:62px 0}
+  .hero{padding:104px 20px 48px;min-height:auto}
+  .hero h1{font-size:clamp(2.6rem,13.5vw,3.6rem)}
+  .hero .tag{font-size:1.02rem}
+  .palindrome{font-size:.62rem;letter-spacing:.18em}
+  .section-head h2{font-size:clamp(1.85rem,8.5vw,2.5rem)}
+  .story-body p{font-size:1rem}
+  .story-body p:first-child::first-letter{font-size:3rem}
+  .pullquote{font-size:1.35rem;padding-left:18px}
+  .story-aside .big{font-size:3rem}
+  .macro{padding:24px}
+  .macro .num{font-size:2.7rem}
+  .score{padding:26px 16px}
+  .pillar h3{font-size:1.4rem}
+  .bio{padding:26px 22px}
+  .contact-card{padding:32px 22px}
+  .review-grid{columns:1;column-gap:0}
+  .btn{padding:13px 22px}
+}
 </style>
 </head>
 <body>
@@ -462,7 +490,7 @@ footer{background:var(--ink);color:var(--cream);padding:70px 0 40px}
       </div>
       <div class="pillar reveal d2">
         <svg class="ic" viewBox="0 0 48 48" fill="none" stroke="#F4D58A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18l-4 4 4 4M34 18l4 4-4 4"/><path d="M28 12l-8 24"/></svg>
-        <h3>Sum-diddly Humption.</h3>
+        <h3>Sum-diddly Humptious.</h3>
         <p>10g per serving — 59% more than traditional hummus. Built for vegetarians who lift, runners who snack, and anyone tracking macros without giving up flavor.</p>
       </div>
       <div class="pillar reveal d3">
@@ -634,19 +662,27 @@ function countUp(el){
 }
 
 /* ---- reveal + trigger animations ---- */
-const io=new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if(!e.isIntersecting)return;
-    e.target.classList.add('in');
-    // counters within
-    e.target.querySelectorAll('[data-count]').forEach(countUp);
-    if(e.target.matches('[data-count]')) countUp(e.target);
-    // bars
-    e.target.querySelectorAll('.bar').forEach(b=>{b.querySelector('i').style.width=b.dataset.w+'%';});
-    io.unobserve(e.target);
+function revealEl(t){
+  if(t.classList.contains('in')) return;
+  t.classList.add('in');
+  t.querySelectorAll('[data-count]').forEach(countUp);
+  if(t.matches('[data-count]')) countUp(t);
+  t.querySelectorAll('.bar').forEach(b=>{b.querySelector('i').style.width=b.dataset.w+'%';});
+}
+// Scroll-based reveal: reliable even on fast flicks and for sections taller
+// than the viewport (where IntersectionObserver thresholds can fail on mobile).
+function checkReveal(){
+  const atBottom = innerHeight + scrollY >= document.documentElement.scrollHeight - 3;
+  const trigger = innerHeight * 0.88;
+  document.querySelectorAll('.reveal:not(.in)').forEach(el=>{
+    if(atBottom || el.getBoundingClientRect().top < trigger) revealEl(el);
   });
-},{threshold:.2});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}
+let ticking=false;
+addEventListener('scroll',()=>{ if(!ticking){ticking=true; requestAnimationFrame(()=>{checkReveal();ticking=false;});} },{passive:true});
+addEventListener('resize',checkReveal,{passive:true});
+addEventListener('load',checkReveal);
+checkReveal();
 
 /* ---- waitlist (Formspree) ----
    1. Create a free form at https://formspree.io  (sends signups to your inbox + dashboard)
